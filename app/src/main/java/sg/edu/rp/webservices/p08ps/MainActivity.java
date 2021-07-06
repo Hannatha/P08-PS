@@ -26,7 +26,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    String[] regions = {"Select area", "North", "Central", "East"};
+    String[] regions = {"", "North", "Central", "East"};
     private GoogleMap map;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         SupportMapFragment mapFragment = (SupportMapFragment)
                 fm.findFragmentById(R.id.map);
 
-        mapFragment.getMapAsync(new OnMapReadyCallback(){ // getMapAsync gets a callback object which will be triggered when the GoogleMap instance is ready to be used
+        mapFragment.getMapAsync(new OnMapReadyCallback(){
+            //getMapAsync gets a callback object which will be triggered when the GoogleMap instance is ready to be used
+            //When something is executed synchronously, you wait for it to finish before moving on to another task.
+            //When something is executed asynchronously, you can move on to another task before it finishes.
             @Override
             public void onMapReady(GoogleMap googleMap) {
                 map = googleMap;
